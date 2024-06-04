@@ -13,8 +13,13 @@ void Game::read_file(string filename)
     }
     
     ifs >> problem_id;
-    ifs.ignore();
-    getline(ifs, problem_specification);
+
+    if(problem_id == 0){
+        problem_specification = "";
+    }
+    else{
+        ifs >> problem_specification;
+    }
 
     cout << "problem_id: [" << problem_id << "]" << endl;
     cout << "problem_specification: [" << problem_specification << "]" << endl;
